@@ -1,23 +1,19 @@
-from app import app, render_template
-from templates.requests import News, get_news
-from templates.requests import get_news,get_news,search_news
+from flask import render_template,request,redirect,url_for
+from app import app
 
+@app.route('/')
+def index():
 
+    latest_news = get_news('latest')
+    breaking_news = get_news('breaking_news')
+    now_showing_news = get_news('now_showing')
 
-# Views
-@app.route('/news/<int:id>')
-def news(id):
-    news = get_news(id)
-    title = f'{news.title}'
+    title = 'Home - Welcome to The best News Review Website Online'
 
-@app.route('/search/<news_name>')
-def search(news_name):
+    search_news = request.args.get('news_query')
 
-
- news_name_list = news_name.split(" ")
- news_name_format = "+".join(news_name_list)
- searched_news = search_news(news_name_format)
- title = f'search results for {news_name}'
-    
- return render_template('search.html',movies = searched_news)
+    if search_news:
+     return redirect(url_for('search',news_name=search_news))
+    else:
+     return render_template('index.html', title = title, latest = latest_news, breaking = breaking_news, now_showing = now_showing_news )
 
