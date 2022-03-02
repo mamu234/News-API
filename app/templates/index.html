@@ -14,6 +14,7 @@
     {% extends 'base.html'%}
 </head>
 <body>
+    {% block content %}
      <!-- for latest news-->
      <h3> latest News</h3>
      <ul>
@@ -39,14 +40,20 @@
         <ul>
             {{ macro.displayNewsList(now_showing)}}
         </ul>
+        {% endblock%}
          <ul>
             {% for now_showing_news in now_showing_news %}
                 <li>{{ now_showing_news.title}}</li>
             {% endfor %}
         </ul>
 </ul>
+
 </body>
 </html>
+
+
+
+
 
 
 
