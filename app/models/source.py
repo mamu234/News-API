@@ -2,8 +2,8 @@ class Source:
 
     all_sources = []
 
-    def __init__(self,news_id,title,imageurl,name):
-        self.news_id = news_id
+    def __init__(self,id,title,imageurl,name):
+        self.news_id = id
         self.title = title
         self.imageurl = imageurl
         self.name= name
