@@ -1,6 +1,8 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from config import DevConfig
+from app import views
+from app import error
 
 
 
@@ -14,7 +16,7 @@ app = Flask(__name__,relative_config = True)
 app.config.from_object(DevConfig)
 app.config.from_pyfile('config.py')
 
-from app.models import views
+
 
     # Initializing flask extensions
 bootstrap.init_app(app)
