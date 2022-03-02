@@ -1,4 +1,4 @@
-from app import app
+from app.models import app
 from flask_script import Manager,Server
 
 

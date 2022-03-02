@@ -10,8 +10,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Welcome to the best News Search website</title>
+    {% import 'macros.html' as macro%}
 </head>
 <body>
-    
+     <!-- for latest news-->
+     <h3> latest News</h3>
+     <ul>
+        {{ macro.displayNewsList(latest)}}
+    </ul>
+     <ul>
+        {% for latest_news in latest%}
+            <li>{{ latest_news.title}}</li>
+        {% endfor %}
+    </ul>
+    <!-- breaking news -->
+        <h3> breaking news </h3>
+        <ul>
+            {{ macro.displayNewsList(breaking_news)}}
+        </ul>
+        <ul>
+        {% for breaking_news in breaking_news %}
+            <li>{{ breaking_news.title}}</li>
+        {% endfor %}
+
+        <!-- Now showing news-->
+        <h3>Now Showing news </h3>
+        <ul>
+            {{ macro.displayNewsList(now_showing)}}
+        </ul>
+         <ul>
+            {% for now_showing_news in now_showing_news %}
+                <li>{{ now_showing_news.title}}</li>
+            {% endfor %}
+        </ul>
+</ul>
 </body>
 </html>
+
+
+
