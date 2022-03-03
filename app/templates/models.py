@@ -1,5 +1,3 @@
-from models.source import Source
-
 
 class News:
     '''
@@ -41,7 +39,7 @@ class Sources:
         response = []
 
         for source in cls.all_sources:
-            if Source.news_id == id:
+            if source.news_id == id:
                 response.append(source)
 
         return response

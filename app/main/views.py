@@ -44,13 +44,13 @@ def new_source(id):
         source = form.source.data
         new_source = Source(News.id,title,News.poster,source)
         new_source.save_source()
-        return redirect(url_for('news',id = News.id ))
+        return redirect(url_for('news',id = News.id))
 
     title = f'{News.title} source'
     return render_template('new_source.html',title = title, source_form=form, news=News)
 
 @classmethod
-def get_reviews(cls,id):
+def get_sources(cls,id):
 
         response = []
 
