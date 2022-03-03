@@ -1,9 +1,8 @@
 import urllib.request,json
-from  models import news
-from app import app
+from .models import News
 
 
-News = news.News
+
 
 # Getting api key
 api_key = None
@@ -36,7 +35,7 @@ def get_news(id):
          news_object = News(id,name,description,poster, category, langauge,country)
     
 def search_news(news_name):
-    search_news_url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=6cc037b2e9984d0b995fb8d87f06d897'.format(api_key,news_name)
+    search_news_url = 'https://newsapi.org/v2/everything?api_key={}&query={}'.format(api_key,news_name)
     with urllib.request.urlopen(search_news_url) as url:
         search_news_data = url.read()
         search_news_response = json.loads(search_news_data)
