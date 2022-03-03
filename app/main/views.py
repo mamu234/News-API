@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for
 from app import app
 from templates.requests import get_news,get_news,search_news
-from templates.models import News, source
+from templates.models import News, Sources, source
 from app.forms import SourceForm
 Source= source.Source
 
@@ -59,3 +59,16 @@ def get_reviews(cls,id):
                 response.append(source)
 
         return response
+
+
+@app.route('/news/<int:id>')
+def news(id):
+
+    '''
+    View news page function that returns the news details page and its data
+    '''
+    news = get_news(id)
+    title = f'{news.title}'
+    sources = Sources.get_sources(sources.id)
+
+    return render_template('news.html',title = title,news = news,sources = sources)

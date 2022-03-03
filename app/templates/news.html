@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{% import 'macros.html' as macro%}
 <!-- Content block -->
 {% block content %}
 <div class="container">
@@ -31,5 +32,20 @@
 
     <p class="langauge"> <b> {{ news.language }}</b> - <i>{{ news.langauge}} language </i> </p>
     <a class=" category" href="/news/source/new/{{news.id}}"> Search for a n new source </a>
+
+</div>
+<div class="row">
+
+    <h1>Sources</h1>
+    <hr>
+
+    {% if sources %}
+        {{macro.displaySources(sources)}}
+
+    {% else%}
+        <h3 class="text-center">This news has no sources </h3>
+
+        <a class="btn btn-success btn-lg text-center" href="/news/source/new/{{news.id}}"> Search for a new source</a>
+    {% endif %}
 
 </div>
