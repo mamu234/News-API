@@ -1,16 +1,18 @@
 from flask import render_template,request,redirect,url_for
-from app import app
 from app import main
 from templates.requests import get_news,get_news,search_news
-from templates.models import News, Sources, source
+from templates.models import News, Sources
 from app.forms import SourceForm
-from  app.main import Sources
+from  main import Sources
 
 
 
-Source= source.Source
 
-all_sources = []
+
+
+# Source= source.Source
+
+# all_sources = []
 
 @main.route('/')
 def index():
@@ -27,7 +29,7 @@ def index():
     else:
      return render_template('index.html', title = title, latest = latest_news, breaking = breaking_news, now_showing = now_showing_news )
 
-@app.route('/search/<news_name>')
+@main.route('/search/<news_name>')
 def search(news_name):
     '''
     View function to display the search results
@@ -39,15 +41,15 @@ def search(news_name):
     return render_template('search.html',news = searched_news)
 
 
-@app.route('/news/source/new/<int:id>', methods = ['GET','POST'])
+@main.route('/news/source/new/<int:id>', methods = ['GET','POST'])
 def new_source(id):
     form = SourceForm()
-    movie = get_news(id)
+    news = get_news(id)
 
     if form.validate_on_submit():
         title = form.title.data
         source = form.source.data
-        new_source = Source(News.id,title,News.poster,source)
+        new_source = Sources(News.id,title,News.poster,source)
         new_source.save_source()
         return redirect(url_for('news',id = News.id))
 
@@ -66,7 +68,7 @@ def get_sources(cls,id):
         return response
 
 
-@app.route('/news/<int:id>')
+@main.route('/news/<int:id>')
 def news(id):
 
     '''
