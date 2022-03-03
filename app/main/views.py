@@ -1,13 +1,18 @@
 from flask import render_template,request,redirect,url_for
 from app import app
+from app import main
 from templates.requests import get_news,get_news,search_news
 from templates.models import News, Sources, source
 from app.forms import SourceForm
+from  app.main import Sources
+
+
+
 Source= source.Source
 
 all_sources = []
 
-@app.route('/')
+@main.route('/')
 def index():
     latest_news = get_news('latest')
     breaking_news = get_news('breaking_news')
