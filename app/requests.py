@@ -25,12 +25,12 @@ def get_news(id):
          news_object = None
          if news_details_response:
             id = news_details_response.get('id')
-            name = news_details_response.get('original_title')
-            description = news_details_response.get('overview')
-            poster = news_details_response.get('poster_path')
-            category= news_details_response.get('vote_average')
-            langauge = news_details_response.get('vote_count')
-            country = news_details_response.response('country')
+            name = news_details_response.get('name')
+            description = news_details_response.get('description')
+            poster = news_details_response.get('poster')
+            category= news_details_response.get('category')
+            langauge = news_details_response.get('language')
+            country = news_details_response.get('country')
 
          news_object = News(id,name,description,poster, category, langauge,country)
     

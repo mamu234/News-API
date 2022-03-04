@@ -1,9 +1,11 @@
 from flask import render_template,request,redirect,url_for
-from app import main
-from templates.requests import get_news,get_news,search_news
-from templates.models import News, Sources
-from app.forms import SourceForm
-from  main import Sources
+from . import main
+from app.requests import get_news,get_news,search_news
+from ..models import News, Sources
+
+
+
+
 
 
 
@@ -16,9 +18,9 @@ from  main import Sources
 
 @main.route('/')
 def index():
-    latest_news = get_news('latest')
-    breaking_news = get_news('breaking_news')
-    now_showing_news = get_news('now_showing')
+    latest_news = get_news(id)
+    breaking_news = get_news()
+    now_showing_news = get_news()
 
     title = 'Home - Welcome to The best News Review Website Online'
 
@@ -41,10 +43,10 @@ def search(news_name):
     return render_template('search.html',news = searched_news)
 
 
-@main.route('/news/source/new/<int:id>', methods = ['GET','POST'])
-def new_source(id):
-    form = SourceForm()
-    news = get_news(id)
+# @main.route('/news/source/new/<int:id>', methods = ['GET','POST'])
+# def new_source(id):
+#     form = SourceForm()
+#     news = get_news(id)
 
     if form.validate_on_submit():
         title = form.title.data

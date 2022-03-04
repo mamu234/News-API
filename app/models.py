@@ -1,4 +1,7 @@
 
+from itertools import count
+
+
 class News:
     '''
     News class to define news Objects
@@ -16,13 +19,16 @@ class Sources:
 
     all_sources = []
 
-    def __init__(self,sources,domains,from_param,to,language,sort_by):
-        self.sources = sources
-        self.domains = domains
-        self.from_param = from_param
-        self.to = to
+    def __init__(self,id,name,description,language,poster,category,country):
+        self.id = id
+        self.name = name 
+        self.description = description
+        self.poster = poster
+        self.category = category
         self.language = language
-        self.sort_by = sort_by
+        self.country = country
+    
+           
 
 
     def save_source(self):

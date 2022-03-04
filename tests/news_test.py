@@ -1,5 +1,5 @@
 import unittest
-from app.main import news
+from app import news
 
 
 class NewsTest(unittest.TestCase):
