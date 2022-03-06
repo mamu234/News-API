@@ -36,8 +36,8 @@ def home():
 
         news.append(main_article['title'])
         desc.append(main_article ['description'])
-        img.append(main_article ['img'])
-        p_date.append(main_article ['p_date'])
+        img.append(main_article['urlToImage'])
+        p_date.append(main_article ['publishedAt'])
         url.append(main_article ['url'])
 
 

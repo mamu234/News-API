@@ -25,10 +25,16 @@
 </nav>
 
 <section id="main">
-    <div class="banner"> <img src="breaking_news.png" alt="">
+    <div class="banner"> <img src="https://t4.ftcdn.net/jpg/03/37/92/49/360_F_337924964_fF610izkv1voIEn71f00sgawArIPPDu.jpg" alt="">
 
     </div>
     <div class="head"> Todays top news headlines</div>
+    {%for title,desc,img,p_date,url in contents %}
+    <div class="wrapper">
+        <div class="item"> <a href="{{url}}" ><img src="{{img}}"></a></div>
+    </div>
+
+    {% endfor %}
 
 </section>
 
