@@ -30,6 +30,19 @@ nav{
     color: aliceblue;
     letter-spacing: 1px;
 }
+nav .menu{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+ul{
+    list-style: none;
+}
+a{
+  text-decoration: none;  
+}
+
 
 nav .menu li a {
 
@@ -48,3 +61,115 @@ nav .menu li a:hover{
     background-color: white;
     border-radius: 20px;
 }
+main{
+    padding-top: 98px;
+}
+.banner img{
+    height:100%;
+    width:100%;
+    padding:2px;
+}
+.head-git{
+    height:40px;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgbs(250,244,244);
+    display:flex;
+    flex-flow: row;
+    margin-bottom: 5px;
+
+}
+.head-git h2{
+    text-decoration: none;
+    color:blue;
+    font-size: 23px;
+}
+.head-git h2 a:hover{
+    color:red;
+    background-color: beige;
+}
+.nav-link{
+    height:100%;
+    width:100%;
+    color:black;
+}
+.head{
+    height:100%;
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding-left:20px;
+    padding-top:10px
+}
+.wrapper{
+    height:400px;
+    width:100%;
+    display:flex;
+    align-items:center;
+    padding:10px;
+    justify-content: space-between;
+    background-color: rgba(68,47,47);
+
+
+}
+.wrapper .item{
+    height:300px;
+    min-width:30%;
+    border-radius: 20px;
+    margin: 10px;
+    padding:0.5px;
+    flex-flow: column wrap;
+    border-bottom: 1px white;
+
+}
+.wrapper .item img{
+    height:100%;
+    width:100%;
+}
+.c-box{
+    height:content;
+    max-width: 50%;
+    display:flex;
+    align-items:center;
+    padding:10px;
+    flex-flow:column;
+    padding:1px;
+}
+.c-box .content{
+    height:content;
+    min-width: 30%;
+    display:flex;
+    align-items: center;
+    flex-flow: row wrap;
+}
+.c-box .content h2{
+    color:yellow;
+    font-size:20px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+.head-f{
+    height:40px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid black;
+    background-color: yellow;
+    display:flex;
+    flex-flow: column;
+}
+.head-f h2{
+    font-size: 18px;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+
