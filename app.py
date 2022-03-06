@@ -11,44 +11,48 @@ def home():
     newsapi =NewsApiClient(api_key='6cc037b2e9984d0b995fb8d87f06d897')
 
 
-    top_headlines = newsapi.get_top_headlines(sources='bbc-news')
+    top_headlines = newsapi.get_top_headlines(sources='bbc-news')  #sources is where news comes into the app
 
-    #soruces is where news comes into the app
+    # for all the  sources
+    all_articles = newsapi.get_everything(sources='bbc-news')
 
-    t_articles = top_headlines['articles']
-    #fetching all the articles of top headlines  news
+    t_articles = top_headlines['articles']  #fetching all the articles of top headlines  news
+
+    #fetching all articles news  
+    a_articles = all_articles['articles']
 
 
      # making a list  of news contant  to store  the value on the list
-    news = []
-    desc = []
-    img = []
-    p_date = []
-    url = []
+    news_all = []
+    desc_all = []
+    img_all = []
+    p_date_all = []
+    url_all = []
 
 
      #fetching  all the cotent using for loop
 
     for i in range(len(t_articles)):
-        main_article = t_articles[i]
+        a_article = t_articles[i]
 
         #append all th content in to each of list 
 
-        news.append(main_article['title'])
-        desc.append(main_article ['description'])
-        img.append(main_article['urlToImage'])
-        p_date.append(main_article ['publishedAt'])
-        url.append(main_article ['url'])
+        news_all.append(a_article['title'])
+        desc_all.append(a_article ['description'])
+        img_all.append(a_article['urlToImage'])
+        p_date_all.append(a_article ['publishedAt'])
+        url_all.append(a_article ['url'])
 
 
         #making a zip to access th contant directly
 
-        contents = zip(news,desc, img ,p_date ,url)
+        contents = zip(news_all,desc_all, img_all ,p_date_all ,url_all)
 
         # pass the zip  into the render file
     
+        all = zip(news_all, desc_all,img_all,p_date_all,url_all)
 
-    return render_template('home.html',contents = contents)
+    return render_template('home.html',contents = contents, all = all)
 
 
 if __name__ == '__main__':

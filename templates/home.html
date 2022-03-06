@@ -29,9 +29,14 @@
 
     </div>
     <div class="head"> Todays top news headlines</div>
-    {%for title,desc,img,p_date,url in contents %}
+    {%for title,desc,img,p_date,url in all %}
     <div class="wrapper">
-        <div class="item"> <a href="{{url}}" ><img src="{{img}}"></a></div>
+        <div class="item"> <a href="{{url}}"> <img src="{{img}}"></a></div>
+    <div class="c-box">
+        <div class="content"> <a href="{{url}}"> <h2>{{title}}</h2></a></div>
+        <div class="content"> <a href="{{url}}"> <p>{{description}}</p></a></div>
+        <div class="content"> <p style="color: rgb(77,255,0);"> Publish Date:-</p> <p>{{p_date}}</p></div>
+    </div>
     </div>
 
     {% endfor %}
