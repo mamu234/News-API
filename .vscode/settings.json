@@ -1,7 +1,0 @@
-{
-    "python.analysis.extraPaths": [
-        "./virtual",
-        "./static/templates",
-        "./app"
-    ]
-}
